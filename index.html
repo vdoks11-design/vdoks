@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VDOKS — Premium video editing services. Cinematic storytelling, color grading, and post-production excellence.">
+    <meta name="keywords" content="video editing, post production, color grading, cinematic, film editing, motion graphics">
+    <meta name="author" content="VDOKS">
+    <meta property="og:title" content="VDOKS — Premium Video Editing">
+    <meta property="og:description" content="Transform raw footage into cinematic masterpieces.">
+    <meta property="og:type" content="website">
+    <title>VDOKS — Premium Video Editing</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: {
+                            primary: '#0A0A0F',
+                            secondary: '#12121A',
+                            tertiary: '#1A1A24',
+                        },
+                        accent: {
+                            primary: '#00D4AA',
+                            secondary: '#FF6B35',
+                        },
+                        text: {
+                            primary: '#F0F0F5',
+                            secondary: '#A0A0B0',
+                            muted: '#6B6B7B',
+                        },
+                        border: '#2A2A3A',
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-bg-primary text-text-primary font-body antialiased overflow-x-hidden">
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group" aria-label="VDOX Home">
+                    <div class="w-10 h-10 bg-accent-primary/10 rounded-lg flex items-center justify-center border border-accent-primary/20 group-hover:border-accent-primary/50 transition-colors">
+                        <svg class="w-5 h-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <span class="font-heading font-bold text-xl tracking-tight text-text-primary">VDOX</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-primary transition-colors relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#works" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-primary transition-colors relative group">
+                        Works
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-primary transition-colors relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="nav-link text-sm font-medium text-text-secondary hover:text-accent-primary transition-colors relative group">
+                        Services
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="px-5 py-2.5 bg-accent-primary text-bg-primary font-heading font-semibold text-sm rounded-lg hover:bg-accent-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-accent-primary/20">
+                        Get in Touch
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-text-primary hover:text-accent-primary transition-colors" aria-label="Toggle menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-bg-secondary/95 backdrop-blur-xl border-t border-border">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#home" class="block py-2 text-text-secondary hover:text-accent-primary transition-colors">Home</a>
+                <a href="#works" class="block py-2 text-text-secondary hover:text-accent-primary transition-colors">Works</a>
+                <a href="#about" class="block py-2 text-text-secondary hover:text-accent-primary transition-colors">About</a>
+                <a href="#services" class="block py-2 text-text-secondary hover:text-accent-primary transition-colors">Services</a>
+                <a href="#contact" class="block py-2 text-accent-primary font-semibold">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-primary/5 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-secondary/5 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-primary/3 rounded-full blur-3xl"></div>
+        </div>
+
+        <!-- Grid Pattern Overlay -->
+        <div class="absolute inset-0 z-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-bg-tertiary/80 border border-border rounded-full mb-8 animate-fade-in" style="animation-delay: 0.2s;">
+                <span class="w-2 h-2 bg-accent-primary rounded-full animate-pulse"></span>
+                <span class="text-sm text-text-secondary">Available for new projects</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="font-heading font-bold text-5xl md:text-7xl lg:text-8xl leading-[1.1] mb-6 animate-fade-up" style="animation-delay: 0.3s;">
+                Where <span class="text-accent-primary italic font-display font-normal">Raw Footage</span><br>
+                Becomes <span class="text-accent-secondary italic font-display font-normal">Cinema</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-text-secondary leading-relaxed mb-10 animate-fade-up" style="animation-delay: 0.5s;">
+                Premium video editing, color grading, and post-production services that transform vision into visual storytelling that moves audiences.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style="animation-delay: 0.7s;">
+                <a href="#works" class="group px-8 py-4 bg-accent-primary text-bg-primary font-heading font-semibold rounded-lg hover:bg-accent-primary/90 transition-all duration-300 hover:shadow-xl hover:shadow-accent-primary/20 flex items-center gap-2">
+                    View Portfolio
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="px-8 py-4 border border-border text-text-primary font-heading font-semibold rounded-lg hover:border-accent-primary hover:text-accent-primary transition-all duration-300">
+                    Start a Project
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-fade-up" style="animation-delay: 0.9s;">
+                <div class="text-center">
+                    <div class="font-heading font-bold text-3xl md:text-4xl text-accent-primary">150+</div>
+                    <div class="text-sm text-text-muted mt-1">Projects Delivered</div>
+                </div>
+                <div class="text-center">
+                    <div class="font-heading font-bold text-3xl md:text-4xl text-accent-primary">50+</div>
+                    <div class="text-sm text-text-muted mt-1">Happy Clients</div>
+                </div>
+                <div class="text-center">
+                    <div class="font-heading font-bold text-3xl md:text-4xl text-accent-primary">8+</div>
+                    <div class="text-sm text-text-muted mt-1">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="font-heading font-bold text-3xl md:text-4xl text-accent-primary">4.9</div>
+                    <div class="text-sm text-text-muted mt-1">Average Rating</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== SHOWREEL / VIDEO SECTION ==================== -->
+    <section class="py-24 md:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12 reveal-on-scroll">
+                <span class="text-accent-primary font-heading font-semibold text-sm tracking-widest uppercase">Showreel</span>
+                <h2 class="font-heading font-bold text-4xl md:text-5xl mt-3">The Craft in Motion</h2>
+            </div>
+
+            <!-- Video Container -->
+            <div class="relative max-w-5xl mx-auto rounded-2xl overflow-hidden border border-border shadow-2xl shadow-accent-primary/5 reveal-on-scroll group">
+                <!-- Placeholder for your showreel video -->
+                <!-- Replace src with your actual video file or embed URL -->
+                <div class="aspect-video bg-bg-secondary relative flex items-center justify-center overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&h=675&fit=crop" alt="Video editing showreel preview" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500">
+                    
+                    <!-- Play Button -->
+                    <button id="showreel-play" class="absolute z-10 w-20 h-20 bg-accent-primary/90 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg shadow-accent-primary/30 group-hover:bg-accent-primary">
+                        <svg class="w-8 h-8 text-bg-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Video Overlay Text -->
+                    <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-bg-primary/90 to-transparent">
+                        <p class="text-text-secondary text-sm">2024 Showreel — 2:34</p>
+                        <h3 class="font-heading font-semibold text-xl mt-1">A Year of Visual Stories</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES SECTION ==================== -->
+    <section id="services" class="py-24 md:py-32 bg-bg-secondary relative">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent-primary/5 to-transparent pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="text-accent-primary font-heading font-semibold text-sm tracking-widest uppercase">What We Do</span>
+                <h2 class="font-heading font-bold text-4xl md:text-5xl mt-3 mb-4">Services</h2>
+                <p class="text-text-secondary max-w-2xl mx-auto">From raw footage to final delivery, every stage of post-production is handled with precision and artistic vision.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="group p-8 bg-bg-tertiary rounded-2xl border border-border hover:border-accent-primary/30 transition-all duration-500 hover:-translate-y-1 reveal-on-scroll">
+                    <div class="w-14 h-14 bg-accent-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent-primary/20 transition-colors">
+                        <svg class="w-7 h-7 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-xl mb-3">Video Editing</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">Precision cutting, pacing, and narrative flow. Every edit serves the story — whether it is a 30-second commercial or a feature-length documentary.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="group p-8 bg-bg-tertiary rounded-2xl border border-border hover:border-accent-primary/30 transition-all duration-500 hover:-translate-y-1 reveal-on-scroll">
+                    <div class="w-14 h-14 bg-accent-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent-primary/20 transition-colors">
+                        <svg class="w-7 h-7 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-xl mb-3">Color Grading</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">Cinematic color science that sets mood and tone. From naturalistic documentary looks to bold stylized palettes using DaVinci Resolve.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="group p-8 bg-bg-tertiary rounded-2xl border border-border hover:border-accent-primary/30 transition-all duration-500 hover:-translate-y-1 reveal-on-scroll">
+                    <div class="w-14 h-14 bg-accent-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent-primary/20 transition-colors">
+                        <svg class="w-7 h-7 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-xl mb-3">Sound Design</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">Layered audio landscapes, foley, and mixing that immerses viewers. Clean dialogue, impactful sound effects, and balanced music beds.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="group p-8 bg-bg-tertiary rounded-2xl border border-border hover:border-accent-primary/30 transition-all duration-500 hover:-translate-y-1 reveal-on-scroll">
+                    <div class="w-14 h-14 bg-accent-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent-primary/20 transition-colors">
+                        <svg class="w-7 h-7 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-xl mb-3">Motion Graphics</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">Kinetic typography, logo animations, and visual effects that elevate production value. Seamless integration with live footage.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="group p-8 bg-bg-tertiary rounded-2xl border border-border hover:border-accent-primary/30 transition-all duration-500 hover:-translate-y-1 reveal-on-scroll">
+                    <div class="w-14 h-14 bg-accent-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent-primary/20 transition-colors">
+                        <svg class="w-7 h-7 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-xl mb-3">VFX & Compositing</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">Green screen keying, screen replacements, particle effects, and seamless visual integration that makes the impossible look real.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="group p-8 bg-bg-tertiary rounded-2xl border border-border hover:border-accent-primary/30 transition-all duration-500 hover:-translate-y-1 reveal-on-scroll">
+                    <div class="w-14 h-14 bg-accent-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent-primary/20 transition-colors">
+                        <svg class="w-7 h-7 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-xl mb-3">Photo Retouching</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">High-end photo editing and compositing for campaigns, lookbooks, and editorial work. Skin retouching, color matching, and creative manipulation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SELECTED WORKS PREVIEW ==================== -->
+    <section id="works" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 reveal-on-scroll">
+                <div>
+                    <span class="text-accent-primary font-heading font-semibold text-sm tracking-widest uppercase">Portfolio</span>
+                    <h2 class="font-heading font-bold text-4xl md:text-5xl mt-3">Selected Works</h2>
+                </div>
+                <a href="#" class="mt-4 md:mt-0 inline-flex items-center gap-2 text-accent-primary font-medium hover:gap-3 transition-all">
+                    View All Projects
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Featured Work (Large) -->
+            <div class="mb-8 reveal-on-scroll">
+                <div class="group relative bg-bg-secondary rounded-2xl overflow-hidden border border-border hover:border-accent-primary/30 transition-all duration-500">
+                    <div class="aspect-[21/9] relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1400&h=600&fit=crop" alt="Featured Project - Urban Energy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/20 to-transparent"></div>
+                        
+                        <!-- Play Button -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="w-20 h-20 bg-accent-primary/90 rounded-full flex items-center justify-center backdrop-blur-sm hover:scale-110 transition-transform cursor-pointer">
+                                <svg class="w-8 h-8 text-bg-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Content Overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="px-3 py-1 bg-accent-primary/20 backdrop-blur-sm rounded-full text-xs font-medium text-accent-primary border border-accent-primary/30">Commercial</span>
+                                <span class="text-text-muted text-sm">2:34</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-3xl md:text-4xl mb-2 group-hover:text-accent-primary transition-colors">Urban Energy</h3>
+                            <p class="text-text-secondary max-w-xl">A high-octane brand campaign featuring dynamic motion graphics and cinematic color grading for a leading sportswear company.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Works Grid -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Work 2 -->
+                <div class="group relative bg-bg-secondary rounded-2xl overflow-hidden border border-border hover:border-accent-primary/30 transition-all duration-500 reveal-on-scroll">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&h=450&fit=crop" alt="Documentary - Voices of the Valley" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-bg-secondary via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-bg-primary/80 backdrop-blur-sm rounded-full text-xs font-medium text-accent-primary border border-accent-primary/20">Documentary</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="w-16 h-16 bg-accent-primary/90 rounded-full flex items-center justify-center backdrop-blur-sm hover:scale-110 transition-transform cursor-pointer">
+                                <svg class="w-6 h-6 text-bg-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-text-muted text-xs mb-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            18:42
+                        </div>
+                        <h3 class="font-heading font-semibold text-xl mb-2 group-hover:text-accent-primary transition-colors">Voices of the Valley</h3>
+                        <p class="text-text-secondary text-sm line-clamp-2">An intimate documentary exploring the lives of artisans in a remote mountain village, featuring naturalistic color palettes and emotional pacing.</p>
+                    </div>
+                </div>
+
+                <!-- Work 3 -->
+                <div class="group relative bg-bg-secondary rounded-2xl overflow-hidden border border-border hover:border-accent-primary/30 transition-all duration-500 reveal-on-scroll">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&h=450&fit=crop" alt="Music Video - Neon Dreams" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-bg-secondary via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-bg-primary/80 backdrop-blur-sm rounded-full text-xs font-medium text-accent-primary border border-accent-primary/20">Music Video</span>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="w-16 h-16 bg-accent-primary/90 rounded-full flex items-center justify-center backdrop-blur-sm hover:scale-110 transition-transform cursor-pointer">
+                                <svg class="w-6 h-6 text-bg-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-text-muted text-xs mb-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            3:45
+                        </div>
+                        <h3 class="font-heading font-semibold text-xl mb-2 group-hover:text-accent-primary transition-colors">Neon Dreams</h3>
+                        <p class="text-text-secondary text-sm line-clamp-2">A visually striking music video blending cyberpunk aesthetics with fluid motion design and synchronized beat-driven editing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT / PROCESS SECTION ==================== -->
+    <section id="about" class="py-24 md:py-32 bg-bg-secondary relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Image/Visual -->
+                <div class="relative reveal-on-scroll">
+                    <div class="relative rounded-2xl overflow-hidden border border-border">
+                        <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&h=1000&fit=crop" alt="Professional editing workspace" class="w-full h-auto object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-bg-primary/60 via-transparent to-transparent"></div>
+                    </div>
+                    <!-- Floating Stats Card -->
+                    <div class="absolute -bottom-6 -right-6 md:bottom-8 md:right-8 bg-bg-tertiary/95 backdrop-blur-xl rounded-xl p-5 border border-border shadow-2xl">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-accent-primary/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-heading font-bold text-2xl text-accent-primary">100%</div>
+                                <div class="text-text-muted text-xs">Project Success Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative blur -->
+                    <div class="absolute -top-4 -left-4 w-32 h-32 bg-accent-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="reveal-on-scroll">
+                    <span class="text-accent-primary font-heading font-semibold text-sm tracking-widest uppercase">The Process</span>
+                    <h2 class="font-heading font-bold text-4xl md:text-5xl mt-3 mb-6">How We Work</h2>
+                    <p class="text-text-secondary text-lg leading-relaxed mb-10">
+                        Every great video starts with understanding. We dive deep into your vision, craft a clear editorial roadmap, and execute with meticulous attention to detail until the final pixel is perfect.
+                    </p>
+
+                    <!-- Steps -->
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-accent-primary/10 rounded-full flex items-center justify-center border border-accent-primary/20">
+                                <span class="font-heading font-bold text-accent-primary">01</span>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-semibold text-lg mb-1">Discovery & Brief</h3>
+                                <p class="text-text-secondary text-sm">Understanding your goals, audience, and creative vision through detailed consultation.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-accent-primary/10 rounded-full flex items-center justify-center border border-accent-primary/20">
+                                <span class="font-heading font-bold text-accent-primary">02</span>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-semibold text-lg mb-1">Assembly & Rough Cut</h3>
+                                <p class="text-text-secondary text-sm">Building the narrative structure with selected footage, pacing, and initial sound design.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-accent-primary/10 rounded-full flex items-center justify-center border border-accent-primary/20">
+                                <span class="font-heading font-bold text-accent-primary">03</span>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-semibold text-lg mb-1">Refinement & Color</h3>
+                                <p class="text-text-secondary text-sm">Fine-tuning every frame with precise cuts, motion graphics, and cinematic color grading.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-accent-primary/10 rounded-full flex items-center justify-center border border-accent-primary/20">
+                                <span class="font-heading font-bold text-accent-primary">04</span>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-semibold text-lg mb-1">Delivery & Support</h3>
+                                <p class="text-text-secondary text-sm">Multi-format exports, source file handoff, and ongoing support for any future needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TOOLS & SOFTWARE ==================== -->
+    <section class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="text-accent-primary font-heading font-semibold text-sm tracking-widest uppercase">Tech Stack</span>
+                <h2 class="font-heading font-bold text-4xl md:text-5xl mt-3 mb-4">Tools of the Trade</h2>
+                <p class="text-text-secondary max-w-2xl mx-auto">Industry-standard software and hardware ensuring the highest quality output for every project.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal-on-scroll">
+                <!-- Tool 1 -->
+                <div class="group p-6 bg-bg-secondary rounded-xl border border-border hover:border-accent-primary/30 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-bg-tertiary rounded-xl flex items-center justify-center group-hover:bg-accent-primary/10 transition-colors">
+                        <svg class="w-8 h-8 text-text-secondary group-hover:text-accent-primary transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-sm mb-1">DaVinci Resolve</h3>
+                    <p class="text-text-muted text-xs">Color Grading</p>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="group p-6 bg-bg-secondary rounded-xl border border-border hover:border-accent-primary/30 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-bg-tertiary rounded-xl flex items-center justify-center group-hover:bg-accent-primary/10 transition-colors">
+                        <svg class="w-8 h-8 text-text-secondary group-hover:text-accent-primary transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-sm mb-1">Adobe Premiere Pro</h3>
+                    <p class="text-text-muted text-xs">Video Editing</p>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="group p-6 bg-bg-secondary rounded-xl border border-border hover:border-accent-primary/30 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-bg-tertiary rounded-xl flex items-center justify-center group-hover:bg-accent-primary/10 transition-colors">
+                        <svg class="w-8 h-8 text-text-secondary group-hover:text-accent-primary transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-sm mb-1">After Effects</h3>
+                    <p class="text-text-muted text-xs">Motion Graphics</p>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="group p-6 bg-bg-secondary rounded-xl border border-border hover:border-accent-primary/30 transition-all duration-300 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-bg-tertiary rounded-xl flex items-center justify-center group-hover:bg-accent-primary/10 transition-colors">
+                        <svg class="w-8 h-8 text-text-secondary group-hover:text-accent-primary transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-semibold text-sm mb-1">Pro Tools</h3>
+                    <p class="text-text-muted text-xs">Audio Mixing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA / CONTACT SECTION ==================== -->
+    <section id="contact" class="py-24 md:py-32 bg-bg-secondary relative overflow-hidden">
+        <!-- Background glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10 reveal-on-scroll">
+            <span class="text-accent-primary font-heading font-semibold text-sm tracking-widest uppercase">Let's Create</span>
+            <h2 class="font-heading font-bold text-4xl md:text-6xl mt-3 mb-6">Ready to Bring Your Vision to Life?</h2>
+            <p class="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                Whether it is a commercial, documentary, music video, or narrative film — every project deserves an editor who cares as much about the story as you do.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <a href="mailto:hello@vdox.studio" class="group px-8 py-4 bg-accent-primary text-bg-primary font-heading font-semibold rounded-lg hover:bg-accent-primary/90 transition-all duration-300 hover:shadow-xl hover:shadow-accent-primary/20 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    hello@vdok.studio
+                </a>
+                <a href="#" class="px-8 py-4 border border-border text-text-primary font-heading font-semibold rounded-lg hover:border-accent-primary hover:text-accent-primary transition-all duration-300">
+                    Schedule a Call
+                </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex items-center justify-center gap-4">
+                <a href="#" class="w-12 h-12 bg-bg-tertiary rounded-full flex items-center justify-center border border-border hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300" aria-label="Instagram">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="#" class="w-12 h-12 bg-bg-tertiary rounded-full flex items-center justify-center border border-border hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300" aria-label="YouTube">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                </a>
+                <a href="#" class="w-12 h-12 bg-bg-tertiary rounded-full flex items-center justify-center border border-border hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300" aria-label="Vimeo">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 7.42c-.09 1.95-1.45 4.62-4.08 8.02C15.15 19.15 12.73 21 10.67 21c-1.27 0-2.35-1.18-3.24-3.53-.59-2.16-1.18-4.33-1.77-6.49-.66-2.36-1.36-3.53-2.12-3.53-.16 0-.74.35-1.73 1.03L1 7.42c1.09-.96 2.16-1.92 3.23-2.88 1.45-1.26 2.54-1.92 3.27-1.99 1.72-.16 2.78 1.01 3.18 3.52.43 2.71.73 4.39.89 5.05.49 2.23 1.03 3.35 1.62 3.35.46 0 1.15-.72 2.07-2.17.92-1.45 1.42-2.55 1.49-3.31.13-1.25-.36-1.88-1.48-1.88-.53 0-1.07.12-1.62.36 1.08-3.53 3.14-5.24 6.18-5.14 2.25.07 3.31 1.53 3.17 4.37z"/>
+                    </svg>
+                </a>
+                <a href="#" class="w-12 h-12 bg-bg-tertiary rounded-full flex items-center justify-center border border-border hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300" aria-label="Behance">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.75.94 2.483 2.416 2.483.9 0 1.576-.362 1.932-.994l1.868.734zm-7.936-3.617h4.73c-.09-1.32-.696-2.05-2.256-2.05-1.32 0-2.184.63-2.474 2.05zM8.667 18.5H1V5.5h7.333c3.093 0 4.867 1.455 4.867 4.014 0 1.64-.743 2.792-2.04 3.353 1.65.418 2.54 1.64 2.54 3.27 0 2.693-1.97 4.363-5.033 4.363zM3.92 10.467h3.32c1.407 0 2.093-.558 2.093-1.64 0-1.163-.686-1.64-2.093-1.64H3.92v3.28zm3.653 6.593c1.523 0 2.373-.597 2.373-1.93 0-1.232-.85-1.79-2.373-1.79H3.92v3.72h3.653z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="py-12 border-t border-border">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-accent-primary/10 rounded-lg flex items-center justify-center border border-accent-primary/20">
+                        <svg class="w-4 h-4 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <span class="font-heading font-bold text-lg text-text-primary">VDOKS</span>
+                </a>
+
+                <!-- Links -->
+                <div class="flex items-center gap-6 text-sm text-text-muted">
+                    <a href="#home" class="hover:text-text-primary transition-colors">Home</a>
+                    <a href="#works" class="hover:text-text-primary transition-colors">Works</a>
+                    <a href="#about" class="hover:text-text-primary transition-colors">About</a>
+                    <a href="#services" class="hover:text-text-primary transition-colors">Services</a>
+                    <a href="#contact" class="hover:text-text-primary transition-colors">Contact</a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-sm text-text-muted">
+                    © 2024 VDOKS. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
